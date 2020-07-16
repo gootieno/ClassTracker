@@ -16,6 +16,7 @@
 h1#landing-page__title {
 	color: white;
 	margin-top: 45px;
+	font-size: 3em;
 }
 
 .landing-page-form-container {
@@ -35,37 +36,61 @@ h1#landing-page__title {
 .landing-page__student {
 	text-align: center;
 	margin-top: 1rem;
+	padding-right: 20px;
 }
 
 .landing-page__instructor-form {
-	display: grid;
-	grid-template-rows: 1fr 1fr 1fr;
+	/* display: grid;
+	grid-template-rows: 1fr 0.5fr 1fr 0.5fr 0.5fr; */
 }
 
 .landing-page__instructor {
 	text-align: center;
 	border-left: 0.5px black solid;
-	padding-left: 255px;
+	padding-left: 100px;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 }
 
-h2.instructor-title {
+p.email {
+	text-align: left;
+	margin-bottom: 0;
+}
+
+p.password {
+	text-align: left;
+	margin-bottom: 0;
+}
+
+h2#student-title {
 	text-align: center;
+	font-size: 2em;
 }
 
-#email {
-	grid-row-start: 1;
-	margin-bottom: 5px;
+h2#instructor-title {
+	text-align: center;
+	font-size: 2em;
+	margin-bottom: 0;
 }
 
-#password {
-	grid-row-start: 2;
-	margin-bottom: 5px;
+form > input {
+	margin-top: 15px;
+	border: none;
+	border-bottom: 1px solid gray;
+	width: 20rem;
+	justify-self: flex-end;
 }
 
 #login-button {
-	display: flex;
-	grid-row-start: 3;
 	justify-self: center;
+	text-align: center;
+	padding: 7px 15px;
+}
+
+h2 > button {
+	margin-top: 10px;
+}
+
+form > button {
+	margin-top: 20px;
 }
