@@ -1,6 +1,6 @@
 import React from "react"
 import NavBar from "./NavBar"
-import "./finalprojects.css"
+import "./final_projects.css"
 
 export default function FinalProjects() {
   return (

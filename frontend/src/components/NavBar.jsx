@@ -25,7 +25,7 @@ const NavBar = () => {
 				<NavLink className='navbar-container-row__navs smaller' to='/conduct'>
 					Annonymous Report
 				</NavLink>
-				<NavLink className='navbar-container-row__navs smaller' to='/instructors'>
+				<NavLink className='navbar-container-row__navs smaller' to='/contact-instructors'>
 					Instructors
 				</NavLink>
 			</div>
