@@ -73,7 +73,7 @@ h2#instructor-title {
 	margin-bottom: 0;
 }
 
-form > input {
+.landing-page__instructor-form > input {
 	margin-top: 15px;
 	border: none;
 	border-bottom: 1px solid gray;
@@ -91,6 +91,6 @@ h2 > button {
 	margin-top: 10px;
 }
 
-form > button {
+.landing-page__instructor-form > button {
 	margin-top: 20px;
 }
