@@ -6,6 +6,7 @@ import Assessments from "./components/Assessments"
 import ClassMates from "./components/ClassMates"
 import FinalProjects from "./components/FinalProjects"
 import Conduct from "./components/Conduct"
+import ContactInstructors from "./components/ContactInstructors"
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 				<Route path='/classmates' component={ClassMates} />
 				<Route path='/final-projects' component={FinalProjects} />
 				<Route path='/conduct' component={Conduct} />
+				<Route path='/contact-instructors' component={ContactInstructors} />
 			</Switch>
 		</BrowserRouter>
 	)
