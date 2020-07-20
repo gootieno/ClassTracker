@@ -18,7 +18,7 @@ def create_assessment():
         return jsonify({'error': str(message)}), 400
 
 
-@b.route('/assessments/<int:student_id>', methods=['GET'])
+@bp.route('/assessments/<int:student_id>', methods=['GET'])
 def get_assessments(student_id):
     assessments = Assessment.query.filter_by(student_id=student_id).all()
     assessments = [assessment.to_dict() for assessment in assessments]
