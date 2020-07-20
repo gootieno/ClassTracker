@@ -1,4 +1,6 @@
-from .models import db
+from ..models import db
+from .student_assessments import student_assessments
+
 
 class Assessment(db.Model):
     __tablename__ = 'assessments'
@@ -9,17 +11,16 @@ class Assessment(db.Model):
     due_date = db.Column(db.DateTime, nullable=False)
     submission = db.Column(db.String(50), nullable=False)
     active = db.Column(db.Boolean, nullable=False)
-    student_id = db.Column(db.Integer, db.ForeignKey('students.id'), nullable=False)
 
-    students = db.relationship('Student', back_populates='assessments')
+    students = db.relationship(
+        'Student', secondary=student_assessments, back_populates='assessments')
 
-    def to_dict():
+    def to_dict(self):
         return {
             'id': self.id,
             'assessment_name': self.assessment_name,
-            'duration': self.duration, 
+            'duration': self.duration,
             'due_date': self.due_date,
             'submission': self.submission,
-            'active': self.active,
-            'student_id': self.student_id
+            'active': self.active
         }
