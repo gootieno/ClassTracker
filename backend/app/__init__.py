@@ -3,6 +3,8 @@ from flask_migrate import Migrate
 from app.config import Configuration
 import os
 
+from ..app.routes import assessments, instructors, projects, students
+
 from app.models import db
 
 if os.environ.get("FLASK_ENV") == 'production':
@@ -14,3 +16,8 @@ else:
 app.config.from_object(Configuration)
 db.init_app(app)
 Migrate(app, db)
+
+app.register_blueprint(assessments.bp)
+app.register_blueprint(instructors.bp)
+app.register_blueprint(projects.bp)
+app.register_blueprint(students.bp)
