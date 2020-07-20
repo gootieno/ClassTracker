@@ -1,11 +1,11 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from ..models import db
 from ..models.assessments import Assessment
 
 bp = Blueprint('assessments', __name__)
 
 
-@bp.route('/assessments', methods=['POST'])
+@bp.route('/add-assessment', methods=['POST'])
 def create_assessment():
     data = request.json
     try:
@@ -16,3 +16,10 @@ def create_assessment():
         return {'assessment': assessment.to_dict()}
     except AssertionError as message:
         return jsonify({'error': str(message)}), 400
+
+
+@b.route('/assessments/<int:student_id>', methods=['GET'])
+def get_assessments(student_id):
+    assessments = Assessment.query.filter_by(student_id=student_id).all()
+    assessments = [assessment.to_dict() for assessment in assessments]
+    return {"assessments": assessments}

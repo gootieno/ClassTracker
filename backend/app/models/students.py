@@ -17,6 +17,8 @@ class Student(db.Model):
     github = db.Column(db.String(50), nullable=False)
     bio = db.Column(db.String(500))
     photoUrl = db.Column(db.String(100))
+    cohort_id = db.Column(db.Integer, db.ForeignKey(
+        'cohorts.id'), nullable=False)
 
     strikes = db.relationship('Student_Strikes', back_populates='students')
     cohort = db.relationship('Cohort', back_populates='students')
