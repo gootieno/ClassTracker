@@ -5,7 +5,7 @@ from ..models.projects import Project
 bp = Blueprint('projects', __name__)
 
 
-@bp.route('projects/<int:student_id>', methods=['GET', 'POST'])
+@bp.route('/projects/<int:student_id>', methods=['GET', 'POST'])
 def get_project(student_id):
     if request.method == 'POST':
         data = request.json

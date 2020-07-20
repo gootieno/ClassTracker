@@ -3,7 +3,10 @@ from flask_migrate import Migrate
 from app.config import Configuration
 import os
 
-from ..app.routes import assessments, instructors, projects, students
+from app.routes import assessments
+from app.routes import instructors
+from app.routes import projects
+from app.routes import students
 
 from app.models import db
 
@@ -21,3 +24,8 @@ app.register_blueprint(assessments.bp)
 app.register_blueprint(instructors.bp)
 app.register_blueprint(projects.bp)
 app.register_blueprint(students.bp)
+
+
+@app.route('/')
+def home():
+    return {'message': 'backend up and running! :)'}
