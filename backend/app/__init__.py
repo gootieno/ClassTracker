@@ -1,5 +1,6 @@
-from flask import flask
+from flask import Flask
 from flask_migrate import Migrate
+from app.config import Configuration
 import os
 
 from app.models import db
@@ -12,4 +13,4 @@ else:
 
 app.config.from_object(Configuration)
 db.init_app(app)
-migrate = Migrate(app, db)
+Migrate(app, db)
