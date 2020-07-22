@@ -9,7 +9,7 @@ class Cohort(db.Model):
     date = db.Column(db.Date, nullable=False)
     location = db.Column(db.String(50), nullable=False)
 
-    student = db.relationship('Student', back_populates='cohorts')
+    students = db.relationship('Student', back_populates='cohorts')
     instructors = db.relationship(
         'Instructor', secondary=cohort_instructors, back_populates='cohorts')
 

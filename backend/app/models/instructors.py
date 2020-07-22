@@ -13,10 +13,10 @@ class Instructor(db.Model):
     pronounciation = db.Column(db.String(50))
     email = db.Column(db.String(50), nullable=False)
     pronoun = db.Column(db.String(10), nullable=False)
-    phone_number = db.Column(db.String(10), nullable=False)
+    phone_number = db.Column(db.String(20), nullable=False)
     photoUrl = db.Column(db.String(100))
 
-    cohort = db.relationship(
+    cohorts = db.relationship(
         'Cohort', secondary='cohort_instructors', back_populates='instructors')
 
     @property
