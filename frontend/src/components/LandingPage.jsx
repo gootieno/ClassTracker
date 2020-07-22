@@ -1,5 +1,6 @@
 import React from 'react';
 import './landingpage.css';
+import StudentLogin from './StudentLogin';
 
 const LandingPage = () => {
 	return (
@@ -10,7 +11,7 @@ const LandingPage = () => {
 			<div className='landing-page-form-container'>
 				<div className='landing-page__student'>
 					<h2 id='student-title'>Student?</h2>
-					<button id='login-button'>sign in with github</button>
+					<StudentLogin />
 				</div>
 				<div className='landing-page__instructor'>
 					<h2 id='instructor-title'>Instructor?</h2>

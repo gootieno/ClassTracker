@@ -1,0 +1,11 @@
+.landing-page__student-form > input {
+	margin-top: 15px;
+	border: none;
+	border-bottom: 1px solid gray;
+	width: 20rem;
+	justify-self: flex-end;
+}
+
+#login-button {
+	margin-top: 1rem;
+}
