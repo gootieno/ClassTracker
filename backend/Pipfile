@@ -18,6 +18,7 @@ python-dotenv = "*"
 psycopg2-binary = "*"
 sqlalchemy = "*"
 jwt = "*"
+flask-seeder = "*"
 
 [requires]
 python_version = "3.8"

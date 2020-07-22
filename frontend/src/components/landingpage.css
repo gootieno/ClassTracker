@@ -65,6 +65,7 @@ p.password {
 h2#student-title {
 	text-align: center;
 	font-size: 2em;
+	margin-bottom: 0;
 }
 
 h2#instructor-title {
