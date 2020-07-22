@@ -13,18 +13,19 @@ class Student(db.Model):
     pronounciation = db.Column(db.String(50))
     email = db.Column(db.String(50), nullable=False)
     pronoun = db.Column(db.String(10), nullable=False)
-    phone_number = db.Column(db.String(10), nullable=False)
+    phone_number = db.Column(db.String(20), nullable=False)
     linked_in = db.Column(db.String(50))
     website = db.Column(db.String(50))
-    github = db.Column(db.String(50), nullable=False)
+    git_hub = db.Column(db.String(50), nullable=False)
     bio = db.Column(db.String(500))
     photoUrl = db.Column(db.String(100))
     cohort_id = db.Column(db.Integer, db.ForeignKey(
         'cohorts.id'), nullable=False)
 
-    strikes = db.relationship('Student_Strikes', back_populates='students')
-    cohort = db.relationship('Cohort', back_populates='students')
-    project = db.relationship('Project', back_populates='students')
+    student_strikes = db.relationship(
+        'Student_Strike', back_populates='students')
+    cohorts = db.relationship('Cohort', back_populates='students')
+    projects = db.relationship('Project', back_populates='students')
     assessments = db.relationship(
         'Assessment', secondary=student_assessments, back_populates='students')
 

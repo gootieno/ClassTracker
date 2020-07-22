@@ -10,7 +10,7 @@ class Student_Strike(db.Model):
     student_id = db.Column(db.Integer, db.ForeignKey(
         'students.id'), nullable=False)
 
-    student = db.relationship('Student', back_populates='student_stats')
+    students = db.relationship('Student', back_populates='student_strikes')
 
     def to_dict(self):
         return {

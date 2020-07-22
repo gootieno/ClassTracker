@@ -9,7 +9,7 @@ class Project(db.Model):
     student_id = db.Column(db.Integer, db.ForeignKey(
         'students.id'), nullable=False)
 
-    student = db.relationship('Student', back_populates='projects')
+    students = db.relationship('Student', back_populates='projects')
 
     def to_dict(self):
         return {
