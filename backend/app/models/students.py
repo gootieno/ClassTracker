@@ -9,7 +9,7 @@ class Student(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
-    hashed_password = db.Column(db.String(128), nullable=False)
+    hashed_password = db.Column(db.String(128), nullable=False) 
     pronounciation = db.Column(db.String(50))
     email = db.Column(db.String(50), nullable=False)
     pronoun = db.Column(db.String(10), nullable=False)
