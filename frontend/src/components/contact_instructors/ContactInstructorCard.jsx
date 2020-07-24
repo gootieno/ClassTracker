@@ -7,10 +7,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
-import './classmateCard.css';
+import './contact_instructors.css';
 
 const useStyles = makeStyles({
 	root: {
@@ -23,91 +22,45 @@ const useStyles = makeStyles({
 	},
 	links: {
 		display: 'flex',
-		justifyContent: 'space-between',
+		justifyContent: 'center',
 	},
 });
 
-export default function ClassmateCard() {
+export default function ContactInstructorCard() {
 	const classes = useStyles();
 
 	const cardInfo = [
 		{
-			firstName: 'Ben',
-			lastName: 'Perlmutter',
+			firstName: 'Bryce',
+			lastName: 'Morgan',
 			pronounciation: 'n/a',
 			pronoun: 'he/him/his',
-			linkedIn: 'https://www.linkedin.com/in/ben-perlmutter-a410228a/',
-			github: 'https://github.com/bpmutter',
+			linkedIn: 'https://www.linkedin.com/in/bryce-morgan-a8792138/',
 			photoUrl: '../../static/mr-bean.png',
 		},
 		{
-			firstName: 'James',
-			lastName: 'Robertson',
+			firstName: 'Bakari',
+			lastName: 'Holmes',
 			pronounciation: 'n/a',
 			pronoun: 'he/him/his',
-			linkedIn: 'https://www.linkedin.com/in/james-robertson-31b623116/',
-			github: 'https://github.com/jamesurobertson',
-			photoUrl: '../../static/serious-stick.jpg',
-		},
-		{
-			firstName: 'Geoffrey',
-			lastName: 'Otieno',
-			pronounciation: 'n/a',
-			pronoun: 'he/him/his',
-			linkedIn: 'https://www.linkedin.com/in/geoffrey-otieno-57015966/',
-			github: 'https://github.com/gootieno',
-			photoUrl: '../../static/serious-stick.jpg',
-		},
-		{
-			firstName: 'Ben',
-			lastName: 'Perlmutter',
-			pronounciation: 'n/a',
-			pronoun: 'he/him/his',
-			linkedIn: 'https://www.linkedin.com/in/ben-perlmutter-a410228a/',
-			github: 'https://github.com/bpmutter',
-			photoUrl: '../../static/mr-bean.png',
-		},
-		{
-			firstName: 'James',
-			lastName: 'Robertson',
-			pronounciation: 'n/a',
-			pronoun: 'he/him/his',
-			linkedIn: 'https://www.linkedin.com/in/james-robertson-31b623116/',
-			github: 'https://github.com/jamesurobertson',
-			photoUrl: '../../static/serious-stick.jpg',
-		},
-		{
-			firstName: 'Geoffrey',
-			lastName: 'Otieno',
-			pronounciation: 'n/a',
-			pronoun: 'he/him/his',
-			linkedIn: 'https://www.linkedin.com/in/geoffrey-otieno-57015966/',
-			github: 'https://github.com/gootieno',
+			linkedIn: 'https://www.linkedin.com/in/bakariholmes/',
 			photoUrl: '../../static/serious-stick.jpg',
 		},
 	];
 
 	return (
-		<div className='class-card-container'>
+		<div className='contact-card-container'>
 			{cardInfo.map(
 				(
-					{
-						firstName,
-						lastName,
-						pronounciation,
-						pronoun,
-						linkedIn,
-						github,
-						photoUrl,
-					},
+					{ firstName, lastName, pronounciation, pronoun, linkedIn, photoUrl },
 					i
 				) => (
-					<Card className={`${classes.root} class-card`}>
+					<Card className={`${classes.root} contact-card`}>
 						<div className='card-container' key={i}>
 							<CardActionArea>
 								<CardMedia
 									className={classes.media}
-									image={require('../../static/eating-stick.jpg')}
+									image={require('../../static/mr-bean.png')}
 									title='Classmate'
 								/>
 								<CardContent>
@@ -131,9 +84,6 @@ export default function ClassmateCard() {
 								</CardContent>
 							</CardActionArea>
 							<CardActions className={classes.links}>
-								<Button size='small' onClick={() => window.open(github)}>
-									<GitHubIcon fontSize='large' />
-								</Button>
 								<Button
 									size='small'
 									color='primary'
