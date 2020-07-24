@@ -4,7 +4,7 @@ import LandingPage from './components/LandingPage';
 import Home from './components/Home';
 import Assessments from './components/assessments/Assessments';
 import ClassMates from './components/classmates/Classmates';
-import FinalProjects from './components/FinalProjects';
+import FinalProjects from './components/final_projects/FinalProjects';
 import Conduct from './components/Conduct';
 import ContactInstructors from './components/ContactInstructors';
 
