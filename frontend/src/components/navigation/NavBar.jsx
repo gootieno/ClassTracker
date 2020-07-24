@@ -19,6 +19,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import NavbarLinks from './NavbarLinks';
 
 const useStyles = makeStyles((theme) => ({
 	grow: {
@@ -198,26 +199,7 @@ export default function NavBar() {
 							inputProps={{ 'aria-label': 'search' }}
 						/>
 					</div>
-					<div className='nav-links'>
-						<Tabs className='navlink-name'>
-							<a href='/assessments'>
-								<Tab label='assessments' />
-							</a>
-							<a href='/classmates'>
-								<Tab label='classmates' />
-							</a>
-							<a href='/final-projects'>
-								<Tab label='projects' />
-							</a>
-							<a href='/conduct'>
-								<Tab label='conduct' />
-							</a>
-							<a href='/assessments'>
-								<Tab label='assessments' />
-							</a>
-						</Tabs>
-					</div>
-
+					<NavbarLinks />
 					<div className={classes.grow} />
 					<div className={classes.sectionDesktop}>
 						<IconButton aria-label='show 4 new mails' color='inherit'>

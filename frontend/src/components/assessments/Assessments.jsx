@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from './navigation/NavBar';
+import NavBar from '../navigation/NavBar';
 import './assessments.css';
 import AssessmentTable from './AssessmentTable';
 
