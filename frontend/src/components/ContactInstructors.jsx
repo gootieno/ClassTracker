@@ -1,5 +1,5 @@
 import React from "react"
-import NavBar from "./NavBar"
+import NavBar from "./navigation/NavBar"
 import "./contact_instructors.css"
 
 export default function ContactInstructors() {

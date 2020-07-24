@@ -1,5 +1,5 @@
 import React from "react"
-import NavBar from "./NavBar"
+import NavBar from "./navigation/NavBar"
 import "./conduct.css"
 
 export default function Conduct() {

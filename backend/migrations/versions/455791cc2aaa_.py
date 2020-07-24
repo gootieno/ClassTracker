@@ -1,8 +1,8 @@
-"""creating all class tracker tables
+"""empty message
 
-Revision ID: 6af5fd27220d
+Revision ID: 455791cc2aaa
 Revises: 
-Create Date: 2020-07-20 01:20:20.597982
+Create Date: 2020-07-23 22:58:38.563704
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '6af5fd27220d'
+revision = '455791cc2aaa'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -31,7 +31,7 @@ def upgrade():
                     )
     op.create_table('cohorts',
                     sa.Column('id', sa.Integer(), nullable=False),
-                    sa.Column('date', sa.DateTime(), nullable=False),
+                    sa.Column('date', sa.Date(), nullable=False),
                     sa.Column('location', sa.String(
                         length=50), nullable=False),
                     sa.PrimaryKeyConstraint('id')
@@ -42,14 +42,25 @@ def upgrade():
                         length=50), nullable=False),
                     sa.Column('last_name', sa.String(
                         length=50), nullable=False),
+                    sa.Column('hashed_password', sa.String(
+                        length=128), nullable=False),
                     sa.Column('pronounciation', sa.String(
                         length=50), nullable=True),
                     sa.Column('email', sa.String(length=50), nullable=False),
                     sa.Column('pronoun', sa.String(length=10), nullable=False),
                     sa.Column('phone_number', sa.String(
-                        length=10), nullable=False),
+                        length=20), nullable=False),
                     sa.Column('photoUrl', sa.String(
                         length=100), nullable=True),
+                    sa.PrimaryKeyConstraint('id')
+                    )
+    op.create_table('cohort_instructors',
+                    sa.Column('id', sa.Integer(), nullable=False),
+                    sa.Column('cohort_id', sa.Integer(), nullable=False),
+                    sa.Column('instructor_id', sa.Integer(), nullable=False),
+                    sa.ForeignKeyConstraint(['cohort_id'], ['cohorts.id'], ),
+                    sa.ForeignKeyConstraint(
+                        ['instructor_id'], ['instructors.id'], ),
                     sa.PrimaryKeyConstraint('id')
                     )
     op.create_table('students',
@@ -58,29 +69,24 @@ def upgrade():
                         length=50), nullable=False),
                     sa.Column('last_name', sa.String(
                         length=50), nullable=False),
+                    sa.Column('hashed_password', sa.String(
+                        length=128), nullable=False),
                     sa.Column('pronounciation', sa.String(
                         length=50), nullable=True),
                     sa.Column('email', sa.String(length=50), nullable=False),
-                    sa.Column('pronount', sa.String(
-                        length=10), nullable=False),
+                    sa.Column('pronoun', sa.String(length=10), nullable=False),
                     sa.Column('phone_number', sa.String(
-                        length=10), nullable=False),
+                        length=20), nullable=False),
                     sa.Column('linked_in', sa.String(
                         length=50), nullable=True),
                     sa.Column('website', sa.String(length=50), nullable=True),
-                    sa.Column('github', sa.String(length=50), nullable=False),
+                    sa.Column('git_hub', sa.String(length=50), nullable=False),
                     sa.Column('bio', sa.String(length=500), nullable=True),
                     sa.Column('photoUrl', sa.String(
                         length=100), nullable=True),
-                    sa.PrimaryKeyConstraint('id')
-                    )
-    op.create_table('cohort_instructors',
                     sa.Column('cohort_id', sa.Integer(), nullable=False),
-                    sa.Column('instructor_id', sa.Integer(), nullable=False),
                     sa.ForeignKeyConstraint(['cohort_id'], ['cohorts.id'], ),
-                    sa.ForeignKeyConstraint(
-                        ['instructor_id'], ['instructors.id'], ),
-                    sa.PrimaryKeyConstraint('cohort_id', 'instructor_id')
+                    sa.PrimaryKeyConstraint('id')
                     )
     op.create_table('projects',
                     sa.Column('id', sa.Integer(), nullable=False),
@@ -116,8 +122,8 @@ def downgrade():
     op.drop_table('student_strikes')
     op.drop_table('student_assessments')
     op.drop_table('projects')
-    op.drop_table('cohort_instructors')
     op.drop_table('students')
+    op.drop_table('cohort_instructors')
     op.drop_table('instructors')
     op.drop_table('cohorts')
     op.drop_table('assessments')

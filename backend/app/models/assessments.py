@@ -1,5 +1,4 @@
 from ..models import db
-from .student_assessments import student_assessments
 
 
 class Assessment(db.Model):
@@ -13,7 +12,7 @@ class Assessment(db.Model):
     active = db.Column(db.Boolean, nullable=False)
 
     students = db.relationship(
-        'Student', secondary=student_assessments, back_populates='assessments')
+        'Student', secondary='student_assessments')
 
     def to_dict(self):
         return {

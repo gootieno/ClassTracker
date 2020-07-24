@@ -17,6 +17,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 
 const useStyles = makeStyles((theme) => ({
 	grow: {
@@ -38,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 	search: {
 		position: 'relative',
 		borderRadius: theme.shape.borderRadius,
-		backgroundColor: fade(theme.palette.common.white, 0.15),
+		backgroundColor: fade(theme.palette.common.white, 0.4),
 		'&:hover': {
 			backgroundColor: fade(theme.palette.common.white, 0.25),
 		},
@@ -170,7 +172,7 @@ export default function NavBar() {
 
 	return (
 		<div className={classes.grow}>
-			<AppBar position='static'>
+			<AppBar style={{ background: '#FF0000' }} position='static'>
 				<Toolbar>
 					<IconButton
 						edge='start'
@@ -197,31 +199,23 @@ export default function NavBar() {
 						/>
 					</div>
 					<div className='nav-links'>
-						<span>
-							<Link className='navlink-name' to='/assessments'>
-								Assessments
-							</Link>
-						</span>
-						<span>
-							<Link className='navlink-name' to='/classmates'>
-								Classmates
-							</Link>
-						</span>
-						<span>
-							<Link className='navlink-name' to='/final-projects'>
-								Projects
-							</Link>
-						</span>
-						<span>
-							<Link className='navlink-name' to='/conduct'>
-								Annonymous Report
-							</Link>
-						</span>
-						<span>
-							<Link className='navlink-name' to='/contact-instructors'>
-								Contact Instructors
-							</Link>
-						</span>
+						<Tabs className='navlink-name'>
+							<a href='/assessments'>
+								<Tab label='assessments' />
+							</a>
+							<a href='/classmates'>
+								<Tab label='classmates' />
+							</a>
+							<a href='/final-projects'>
+								<Tab label='projects' />
+							</a>
+							<a href='/conduct'>
+								<Tab label='conduct' />
+							</a>
+							<a href='/assessments'>
+								<Tab label='assessments' />
+							</a>
+						</Tabs>
 					</div>
 
 					<div className={classes.grow} />

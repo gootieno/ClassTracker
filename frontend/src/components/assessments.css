@@ -1,15 +1,11 @@
-.assessments-container {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  flex-direction: column;
-}
-
 .assessments-title {
-  text-align: center;
+	text-align: center;
+	margin-top: 1.5rem;
+	margin-bottom: 2rem;
+	margin-left: 5rem;
 }
 
 .assessments-content {
-  display: flex;
-  justify-content: center;
+	margin-left: 2rem;
+	margin-right: 2rem;
 }
