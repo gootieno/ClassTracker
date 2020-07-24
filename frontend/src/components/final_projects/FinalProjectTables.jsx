@@ -8,16 +8,52 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+import TableSortLabel from '@material-ui/core/TableSortLabel';
 
 const useStyles = makeStyles({
 	table: {
 		minWidth: 450,
+	},
+	icon: {
+		height: 70,
+		width: 70,
+	},
+	visuallyHidden: {
+		border: 0,
+		clip: 'rect(0 0 0 0)',
+		height: 1,
+		margin: -1,
+		overflow: 'hidden',
+		padding: 0,
+		position: 'absolute',
+		top: 20,
+		width: 1,
 	},
 });
 
 function createData(student, finalProject, clone, gitHub) {
 	return { student, finalProject, clone, gitHub };
 }
+
+const headCells = [
+	{
+		id: 'student',
+		label: 'Student',
+	},
+	{
+		id: 'finalProject',
+		label: 'Final Project',
+	},
+	{
+		id: 'clone',
+		label: 'Clone Name',
+	},
+	{
+		id: 'github',
+		label: 'Github',
+	},
+];
 
 const rows = [
 	createData(
@@ -34,34 +70,88 @@ const rows = [
 	),
 ];
 
-export default function FinalProjectsTables() {
+export default function FinalProjectsTables(props) {
 	const classes = useStyles();
+	let [order, setOrder] = React.useState('asc');
+	let [orderBy, setOrderBy] = React.useState('');
 
+	const handleRequestSort = (event, property) => {
+		const isAsc = orderBy === property && order === 'asc';
+		setOrder(isAsc ? 'desc' : 'asc');
+		setOrderBy(property);
+	};
+
+	function descendingComparator(a, b, orderBy) {
+		if (b[orderBy] < a[orderBy]) {
+			return -1;
+		}
+		if (b[orderBy] > a[orderBy]) {
+			return 1;
+		}
+		return 0;
+	}
+
+	function getComparator(order, orderBy) {
+		return order === 'desc'
+			? (a, b) => descendingComparator(a, b, orderBy)
+			: (a, b) => -descendingComparator(a, b, orderBy);
+	}
+
+	function stableSort(array, comparator) {
+		const stabilizedThis = array.map((el, index) => [el, index]);
+		stabilizedThis.sort((a, b) => {
+			const order = comparator(a[0], b[0]);
+			if (order !== 0) return order;
+			return a[1] - b[1];
+		});
+		return stabilizedThis.map((el) => el[0]);
+	}
+
+	const createSortHandler = (property) => (event) => {
+		handleRequestSort(event, property);
+	};
 	return (
 		<TableContainer component={Paper}>
 			<Table className={classes.table} aria-label='simple table'>
 				<TableHead>
 					<TableRow>
-						<TableCell width='25%' align='center'>
-							Student
-						</TableCell>
-						<TableCell align='center'>Final Project</TableCell>
-						<TableCell align='center'>Clone</TableCell>
-						<TableCell align='center'>Github</TableCell>
+						{headCells.map((headCell) => (
+							<TableCell
+								key={headCell.id}
+								width='25%'
+								align='center'
+								sortDirection={orderBy === headCell.id ? order : false}
+							>
+								<TableSortLabel
+									active={orderBy === headCell.id}
+									direction={orderBy === headCell.id ? order : 'asc'}
+									onClick={createSortHandler(headCell.id)}
+								>
+									{headCell.label}
+									{orderBy === headCell.id ? (
+										<span className={classes.visuallyHidden}>
+											{order === 'desc'
+												? 'sorted descending'
+												: 'sorted ascending'}
+										</span>
+									) : null}
+								</TableSortLabel>
+							</TableCell>
+						))}
 					</TableRow>
 				</TableHead>
 				<TableBody>
-					{rows.map((row, i) => (
-						<TableRow key={i}>
-							<TableCell align='center' component='th' scope='row'>
+					{stableSort(rows, getComparator(order, orderBy)).map((row, index) => (
+						<TableRow key={index}>
+							<TableCell align='center' scope='row' component='th' scope='row'>
 								{row.student}
 							</TableCell>
 							<TableCell align='center'>{row.finalProject}</TableCell>
 							<TableCell align='center'>{row.clone}</TableCell>
 							<TableCell align='center'>
-								<a href={row.gitHub}>
-									<GitHubIcon />
-								</a>
+								<Button onClick={() => window.open(row.gitHub)}>
+									<GitHubIcon color='secondary' />
+								</Button>
 							</TableCell>
 						</TableRow>
 					))}
