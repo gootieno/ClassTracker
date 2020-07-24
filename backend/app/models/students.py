@@ -1,5 +1,4 @@
 from ..models import db
-from .student_assessments import student_assessments
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -9,7 +8,7 @@ class Student(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
-    hashed_password = db.Column(db.String(128), nullable=False) 
+    hashed_password = db.Column(db.String(128), nullable=False)
     pronounciation = db.Column(db.String(50))
     email = db.Column(db.String(50), nullable=False)
     pronoun = db.Column(db.String(10), nullable=False)
@@ -27,7 +26,7 @@ class Student(db.Model):
     cohorts = db.relationship('Cohort', back_populates='students')
     projects = db.relationship('Project', back_populates='students')
     assessments = db.relationship(
-        'Assessment', secondary=student_assessments, back_populates='students')
+        'Assessment', secondary='student_assessments')
 
     @property
     def password(self):
