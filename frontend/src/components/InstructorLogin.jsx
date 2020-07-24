@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
-import './studentLogin.css';
+import React from 'react';
+import './instructorLogin.css';
 import { Button, TextField } from '@material-ui/core';
 
-export default function StudentLogin() {
-	const [loginInput, setloginInput] = useState({ email: '', password: '' });
+function InstructorLogin() {
 	return (
-		<div className='student-login-container'>
-			<h2>Student</h2>
-			<form className='landing-page__student-form'>
+		<div className='instructor-login-container'>
+			<h2 id='instructor-title'>Instructor?</h2>
+			<form className='landing-page__instructor-form'>
 				<TextField
 					required
 					id='standard-required'
@@ -28,3 +27,5 @@ export default function StudentLogin() {
 		</div>
 	);
 }
+
+export default InstructorLogin;
