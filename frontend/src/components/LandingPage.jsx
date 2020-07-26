@@ -1,8 +1,8 @@
 import React from 'react';
 import './landingpage.css';
-import StudentLogin from './StudentLogin';
+import StudentLogin from './login/StudentLogin';
 import { Divider, Grid } from '@material-ui/core';
-import InstructorLogin from './InstructorLogin';
+import InstructorLogin from './login/InstructorLogin';
 
 const LandingPage = () => {
 	return (
@@ -12,7 +12,13 @@ const LandingPage = () => {
 				<div>
 					<Grid container alignItems='center'>
 						<StudentLogin />
-						<Divider orientation='vertical' flexItem />
+						<div>
+							<img
+								className='login-page-image'
+								src={require('../static/aa-student.png')}
+								alt='students'
+							/>
+						</div>
 						<InstructorLogin />
 					</Grid>
 				</div>

@@ -1,8 +1,14 @@
 #landing-page__title {
 	text-align: center;
+	margin-top: 1rem;
 }
 
 .login-container {
 	display: flex;
 	justify-content: center;
+	margin-top: 5rem;
+}
+
+img.login-page-image {
+	width: 100%;
 }
