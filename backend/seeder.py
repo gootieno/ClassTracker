@@ -5,6 +5,8 @@ from app.models.cohort import Cohort
 from app.models.students import Student
 from app.models.instructors import Instructor
 from app.models.projects import Project
+from app.models.student_assessments import StudentAssessment
+from app.models.cohort_instructors import cohort_instructors
 
 with app.app_context():
     db.drop_all()

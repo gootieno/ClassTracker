@@ -12,7 +12,7 @@ class Assessment(db.Model):
     active = db.Column(db.Boolean, nullable=False)
 
     students = db.relationship(
-        'Student', secondary='student_assessments')
+        'StudentAssessment', back_populates='assessments')
 
     def to_dict(self):
         return {

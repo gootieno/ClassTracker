@@ -17,7 +17,7 @@ class Instructor(db.Model):
     photoUrl = db.Column(db.String(100))
 
     cohorts = db.relationship(
-        'Cohort', secondary='cohort_instructors', back_populates='instructors')
+        'Cohort', secondary=cohort_instructors, back_populates='instructors')
 
     @property
     def password(self):
