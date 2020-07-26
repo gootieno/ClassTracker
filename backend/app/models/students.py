@@ -25,8 +25,9 @@ class Student(db.Model):
         'Student_Strike', back_populates='students')
     cohorts = db.relationship('Cohort', back_populates='students')
     projects = db.relationship('Project', back_populates='students')
+
     assessments = db.relationship(
-        'Assessment', secondary='student_assessments')
+        'StudentAssessment', back_populates='students')
 
     @property
     def password(self):
