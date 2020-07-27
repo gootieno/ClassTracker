@@ -119,6 +119,7 @@ export default function NavBar() {
 		window.localStorage.removeItem('STUDENT_NAME');
 		window.localStorage.removeItem('STUDENT_ID');
 		window.localStorage.removeItem('COHORT_ID');
+
 		return <Redirect to='/' />;
 	};
 
