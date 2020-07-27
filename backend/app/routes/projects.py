@@ -31,6 +31,6 @@ def get_cohort_projects(cohort_id):
         for project in projects:
             if student['id'] == project['student_id']:
                 student_projects.append({
-                    'first_name': student['first_name'], 'last_name': student['last_name'], 'project_name': project['project_name'], 'clone_name': project['clone_name']})
+                    'github': student['github'], 'cohort_id': project['cohort_id'], 'project_id': project['id'], 'first_name': student['first_name'], 'last_name': student['last_name'], 'project_name': project['project_name'], 'clone_name': project['clone_name']})
     # print(student_projects)
-    return {'student_projects': student_projects}
+    return {'projects': student_projects}
