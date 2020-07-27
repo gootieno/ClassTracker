@@ -22,6 +22,7 @@ function a11yProps(index) {
 export default function NavbarLinks() {
 	const classes = useStyles();
 	const tabs = [
+		{ label: 'home', path: '/me' },
 		{ label: 'assessments', path: '/assessments' },
 		{ label: 'classmates', path: '/classmates' },
 		{ label: 'final-projects', path: '/final-projects' },

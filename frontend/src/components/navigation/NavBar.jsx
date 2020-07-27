@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './navbar.css';
 
 import { fade, makeStyles } from '@material-ui/core/styles';
@@ -17,8 +17,6 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 import NavbarLinks from './NavbarLinks';
 
 const useStyles = makeStyles((theme) => ({
@@ -114,6 +112,16 @@ export default function NavBar() {
 		setMobileMoreAnchorEl(event.currentTarget);
 	};
 
+	const handleLogout = () => {
+		console.log('logging out');
+		window.localStorage.removeItem('class_tracker/authentication/token');
+		window.localStorage.removeItem('STUDENT_EMAIL');
+		window.localStorage.removeItem('STUDENT_NAME');
+		window.localStorage.removeItem('STUDENT_ID');
+		window.localStorage.removeItem('COHORT_ID');
+		return <Redirect to='/' />;
+	};
+
 	const menuId = 'primary-search-account-menu';
 	const renderMenu = (
 		<Menu
@@ -126,7 +134,9 @@ export default function NavBar() {
 			onClose={handleMenuClose}
 		>
 			<MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-			<MenuItem onClick={handleMenuClose}>My account</MenuItem>
+			<MenuItem onClick={handleLogout}>
+				<Link to='/'>Logout</Link>
+			</MenuItem>
 		</Menu>
 	);
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import './landingpage.css';
 import StudentLogin from './login/StudentLogin';
-import { Divider, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import InstructorLogin from './login/InstructorLogin';
 
 const LandingPage = () => {

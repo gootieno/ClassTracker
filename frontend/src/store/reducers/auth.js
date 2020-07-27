@@ -5,8 +5,11 @@ export const STUDENT_NAME = 'STUDENT_NAME';
 export const STUDENT_ID = 'STUDENT_ID';
 export const SET_TOKEN = 'SET_TOKEN';
 export const REMOVE_TOKEN = 'REMOVE_TOKEN';
+export const COHORT_ID = 'COHORT_ID';
 
 const removeToken = () => {
+	window.localStorage.removeItem(STUDENT_TOKEN_KEY);
+	window.location.href = '/';
 	return {
 		type: REMOVE_TOKEN,
 	};
@@ -35,15 +38,24 @@ export const studentLogin = (email, password) => async (dispatch) => {
 
 		if (response.ok) {
 			const { access_token, student } = await response.json();
+			console.log(student);
 			window.localStorage.setItem(STUDENT_EMAIL, student.email);
 			window.localStorage.setItem(STUDENT_NAME, student.first_name);
 			window.localStorage.setItem(STUDENT_ID, student.id);
+			window.localStorage.setItem(COHORT_ID, student.cohort_id);
 			window.localStorage.setItem(STUDENT_TOKEN_KEY, access_token);
+			window.location.href = '/me';
 			return dispatch(setToken(access_token));
 		}
 	} catch (error) {
 		console.error(error);
 	}
+};
+
+export const logoutStudent = () => async (dispatch, getState) => {
+	console.log('in the logout selector');
+	window.localStorage.removeItem(STUDENT_TOKEN_KEY);
+	dispatch(removeToken());
 };
 
 //REDUCERS
