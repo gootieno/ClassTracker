@@ -53,5 +53,6 @@ class Student(db.Model):
             'website': self.website,
             'github': self.github,
             'bio': self.bio,
-            'photoUrl': self.photoUrl
+            'photoUrl': self.photoUrl,
+            'cohort_id': self.cohort_id,
         }

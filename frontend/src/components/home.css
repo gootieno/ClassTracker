@@ -1,19 +1,35 @@
 .home-container {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  flex-direction: column;
-  justify-content: center;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .home__welcome-message {
-  text-align: center;
+	text-align: center;
+	margin-top: 2rem;
+	margin-bottom: 1.5rem;
 }
 
 .home__app-academy-link {
-  text-align: center;
+	text-align: center;
+	font-size: 2em;
+	margin-bottom: 1rem;
+}
+
+.home__app-academy-link:hover {
+	text-decoration: underline;
 }
 
 .home__zoom-meeting {
-  text-align: center;
+	text-align: center;
+}
+
+.home__zoom-meeting > h2 {
+	margin-bottom: 1rem;
+}
+
+.home__zoom-meeting > p {
+	margin-top: 1rem;
 }

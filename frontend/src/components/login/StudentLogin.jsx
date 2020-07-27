@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
@@ -73,7 +73,7 @@ function StudentLogin(props) {
 						<Button onClick={handleClose} color='primary'>
 							Cancel
 						</Button>
-						<Button onClick={handleLogin} color='primary'>
+						<Button type='submit' onClick={handleLogin} color='primary'>
 							Login
 						</Button>
 					</DialogActions>
