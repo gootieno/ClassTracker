@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -7,7 +7,9 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 export default function InstructorLogin() {
-	const [open, setOpen] = React.useState(false);
+	const [open, setOpen] = useState(false);
+	const [email, setUsername] = useState('');
+	const [password, setPassword] = useState('');
 
 	const handleClickOpen = () => {
 		setOpen(true);
@@ -19,7 +21,12 @@ export default function InstructorLogin() {
 
 	return (
 		<div>
-			<Button variant='outlined' color='primary' onClick={handleClickOpen}>
+			<Button
+				style={{ borderColor: 'red', color: 'red' }}
+				variant='outlined'
+				color='secondary'
+				onClick={handleClickOpen}
+			>
 				Instructor Login
 			</Button>
 			<Dialog
@@ -37,6 +44,7 @@ export default function InstructorLogin() {
 							label='Email'
 							type='email'
 							style={{ paddingBottom: '10px' }}
+							onChange={(e) => setUsername(e.target.value)}
 						/>
 						<br />
 						<TextField
@@ -44,6 +52,7 @@ export default function InstructorLogin() {
 							label='Password'
 							type='password'
 							autoComplete='current-password'
+							onChange={(e) => setPassword(e.target.value)}
 						/>
 						<br />
 					</form>

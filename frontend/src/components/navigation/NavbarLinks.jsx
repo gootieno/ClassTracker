@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 function a11yProps(index) {
 	return {
 		id: `simple-tab-${index}`,
-		tabindex: index,
+		tabIndex: index,
 	};
 }
 

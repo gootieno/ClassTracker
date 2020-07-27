@@ -12,7 +12,7 @@ const LandingPage = () => {
 				<div>
 					<Grid container alignItems='center'>
 						<StudentLogin />
-						<div>
+						<div className='image-container'>
 							<img
 								className='login-page-image'
 								src={require('../static/aa-student.png')}

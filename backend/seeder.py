@@ -13,7 +13,7 @@ with app.app_context():
     db.create_all()
     cohort1 = Cohort(date='2020-2-24', location='online')
     student1 = Student(first_name='James', last_name='Robertson', password='pass1234', pronounciation='', email='james@know-it-all.com',
-                       pronoun='', phone_number='123-456-7890', linked_in='', website='', git_hub='', bio='', photoUrl='', cohort_id=1)
+                       pronoun='', phone_number='123-456-7890', linked_in='', website='', github='', bio='', photoUrl='', cohort_id=1)
     instructor1 = Instructor(first_name='Bryce', last_name='Morgan', password='pass1234', pronounciation='',
                              email='bryce@morgan.com', pronoun='he/him/his', phone_number='123-456-7890', photoUrl='')
     project1 = Project(project_name='Slick', student_id=1)

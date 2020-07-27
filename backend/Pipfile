@@ -19,6 +19,7 @@ psycopg2-binary = "*"
 sqlalchemy = "*"
 jwt = "*"
 flask-seeder = "*"
+pyjwt = "*"
 
 [requires]
 python_version = "3.8"

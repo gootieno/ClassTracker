@@ -15,7 +15,7 @@ class Student(db.Model):
     phone_number = db.Column(db.String(20), nullable=False)
     linked_in = db.Column(db.String(50))
     website = db.Column(db.String(50))
-    git_hub = db.Column(db.String(50), nullable=False)
+    github = db.Column(db.String(50))
     bio = db.Column(db.String(500))
     photoUrl = db.Column(db.String(100))
     cohort_id = db.Column(db.Integer, db.ForeignKey(
@@ -49,7 +49,7 @@ class Student(db.Model):
             'email': self.email,
             'pronoun': self.pronoun,
             'phone_number': self.phone_number,
-            'linked_id': self.linked_id,
+            'linked_in': self.linked_in,
             'website': self.website,
             'github': self.github,
             'bio': self.bio,

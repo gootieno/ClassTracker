@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_migrate import Migrate
 from app.config import Configuration
+from flask_cors import CORS
 import os
 
 from app.routes import assessments
@@ -16,6 +17,7 @@ if os.environ.get("FLASK_ENV") == 'production':
 else:
     app = Flask(__name__)
 
+CORS(app)
 app.config.from_object(Configuration)
 db.init_app(app)
 Migrate(app, db)
