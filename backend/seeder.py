@@ -13,13 +13,13 @@ with app.app_context():
     db.create_all()
     cohort1 = Cohort(date='2020-2-24', location='online')
     student1 = Student(first_name='James', last_name='Robertson', password='pass1234', pronounciation='', email='james@know-it-all.com',
-                       pronoun='', phone_number='123-456-7890', linked_in='', website='', github='', bio='', photoUrl='', cohort_id=1)
+                       pronoun='he/him/his', phone_number='123-456-7890', linked_in='https://www.linkedin.com/in/james-robertson-31b623116/', website='', github='https://github.com/jamesurobertson', bio='', photoUrl='', cohort_id=1)
     student2 = Student(first_name='Brad', last_name='Simpson', password='pass1234', pronounciation='', email='brad@simpson.com',
-                       pronoun='', phone_number='123-456-7890', linked_in='', website='', github='', bio='', photoUrl='', cohort_id=1)
+                       pronoun='he/him/his', phone_number='123-456-7890', linked_in='https://www.linkedin.com/in/brad-simpson-a6b1b7b2/', website='', github='https://github.com/bradsimpson213', bio='', photoUrl='', cohort_id=1)
     student3 = Student(first_name='Ben', last_name='Perlmutter', password='pass1234', pronounciation='', email='ben@perlmutter.com',
-                       pronoun='', phone_number='123-456-7890', linked_in='', website='', github='', bio='', photoUrl='', cohort_id=1)
+                       pronoun='', phone_number='123-456-7890', linked_in='https://www.linkedin.com/in/ben-perlmutter-a410228a/', website='', github='https://github.com/bpmutter', bio='', photoUrl='', cohort_id=1)
     student4 = Student(first_name='Geoffrey', last_name='Otieno', password='pass1234', pronounciation='', email='geoffrey@otieno.com',
-                       pronoun='', phone_number='123-456-7890', linked_in='', website='', github='', bio='', photoUrl='', cohort_id=1)
+                       pronoun='he/him/his', phone_number='123-456-7890', linked_in='https://www.linkedin.com/in/geoffrey-otieno-57015966/', website='', github='https://github.com/gootieno', bio='', photoUrl='', cohort_id=1)
     instructor1 = Instructor(first_name='Bryce', last_name='Morgan', password='pass1234', pronounciation='',
                              email='bryce@morgan.com', pronoun='he/him/his', phone_number='123-456-7890', photoUrl='')
 
