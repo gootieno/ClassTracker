@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -10,6 +11,10 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
+import { getProjectsByCohortId } from '../../store/reducers/projects';
+import { fetchCohortProjects } from '../../store/utils/apiUtils';
+
+const cohortId = window.localStorage.getItem('COHORT_ID');
 
 const useStyles = makeStyles({
 	table: {
@@ -70,10 +75,14 @@ const rows = [
 	),
 ];
 
-export default function FinalProjectsTables(props) {
+function FinalProjectsTables(props) {
 	const classes = useStyles();
 	let [order, setOrder] = React.useState('asc');
 	let [orderBy, setOrderBy] = React.useState('');
+
+	useEffect(() => {
+		props.fetchCohortProjects(cohortId);
+	}, []);
 
 	const handleRequestSort = (event, property) => {
 		const isAsc = orderBy === property && order === 'asc';
@@ -110,6 +119,7 @@ export default function FinalProjectsTables(props) {
 	const createSortHandler = (property) => (event) => {
 		handleRequestSort(event, property);
 	};
+	console.log(props.projects);
 	return (
 		<TableContainer component={Paper}>
 			<Table className={classes.table} aria-label='simple table'>
@@ -141,22 +151,42 @@ export default function FinalProjectsTables(props) {
 					</TableRow>
 				</TableHead>
 				<TableBody>
-					{stableSort(rows, getComparator(order, orderBy)).map((row, index) => (
-						<TableRow key={index}>
-							<TableCell align='center' scope='row' component='th' scope='row'>
-								{row.student}
-							</TableCell>
-							<TableCell align='center'>{row.finalProject}</TableCell>
-							<TableCell align='center'>{row.clone}</TableCell>
-							<TableCell align='center'>
-								<Button onClick={() => window.open(row.gitHub)}>
-									<GitHubIcon color='secondary' />
-								</Button>
-							</TableCell>
-						</TableRow>
-					))}
+					{stableSort(props.projects, getComparator(order, orderBy)).map(
+						(project, index) => (
+							<TableRow key={index}>
+								<TableCell
+									align='center'
+									scope='row'
+									component='th'
+									scope='row'
+								>
+									{project.first_name} {project.last_name}
+								</TableCell>
+								<TableCell align='center'>{project.project_name}</TableCell>
+								<TableCell align='center'>{project.clone_name}</TableCell>
+								<TableCell align='center'>
+									<Button onClick={() => window.open(project.gitHub)}>
+										<GitHubIcon color='secondary' />
+									</Button>
+								</TableCell>
+							</TableRow>
+						)
+					)}
 				</TableBody>
 			</Table>
 		</TableContainer>
 	);
 }
+
+const mapStateToProps = (state, cohortId) => ({
+	projects: getProjectsByCohortId(state, cohortId),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+	fetchCohortProjects: () => dispatch(fetchCohortProjects(cohortId)),
+});
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(FinalProjectsTables);
