@@ -1,6 +1,7 @@
 from flask import Blueprint, request
 from ..models import db
 from ..models.students import Student
+from ..models.projects import Project
 from ..config import Configuration
 from ..studentAuth import require_auth
 import jwt
@@ -11,7 +12,7 @@ bp = Blueprint('students', __name__)
 @bp.route('/students/<int:cohort_id>', methods=['GET'])
 def get_students(cohort_id):
     students = Student.query.filter_by(cohort_id=cohort_id).all()
-    students = [student.do_dict() for student in students]
+    students = [student.to_dict() for student in students]
     return {'students': students}
 
 

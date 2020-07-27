@@ -1,8 +1,8 @@
-"""first migration
+"""empty message
 
-Revision ID: 1fda52ca8363
+Revision ID: 341d858a61de
 Revises: 
-Create Date: 2020-07-26 17:39:57.337315
+Create Date: 2020-07-27 00:31:43.654605
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '1fda52ca8363'
+revision = '341d858a61de'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -60,11 +60,11 @@ def upgrade():
     sa.Column('hashed_password', sa.String(length=128), nullable=False),
     sa.Column('pronounciation', sa.String(length=50), nullable=True),
     sa.Column('email', sa.String(length=50), nullable=False),
-    sa.Column('pronoun', sa.String(length=10), nullable=False),
+    sa.Column('pronoun', sa.String(length=15), nullable=False),
     sa.Column('phone_number', sa.String(length=20), nullable=False),
-    sa.Column('linked_in', sa.String(length=50), nullable=True),
-    sa.Column('website', sa.String(length=50), nullable=True),
-    sa.Column('github', sa.String(length=50), nullable=True),
+    sa.Column('linked_in', sa.String(length=100), nullable=True),
+    sa.Column('website', sa.String(length=100), nullable=True),
+    sa.Column('github', sa.String(length=100), nullable=True),
     sa.Column('bio', sa.String(length=500), nullable=True),
     sa.Column('photoUrl', sa.String(length=100), nullable=True),
     sa.Column('cohort_id', sa.Integer(), nullable=False),
@@ -74,7 +74,10 @@ def upgrade():
     op.create_table('projects',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('project_name', sa.String(length=50), nullable=False),
+    sa.Column('clone_name', sa.String(length=100), nullable=False),
     sa.Column('student_id', sa.Integer(), nullable=False),
+    sa.Column('cohort_id', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['cohort_id'], ['cohorts.id'], ),
     sa.ForeignKeyConstraint(['student_id'], ['students.id'], ),
     sa.PrimaryKeyConstraint('id')
     )

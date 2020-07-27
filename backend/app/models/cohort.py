@@ -12,6 +12,7 @@ class Cohort(db.Model):
     students = db.relationship('Student', back_populates='cohorts')
     instructors = db.relationship(
         'Instructor', secondary=cohort_instructors, back_populates='cohorts')
+    projects = db.relationship('Project', back_populates='cohorts')
 
     def to_dict(self):
         return {
