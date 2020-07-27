@@ -26,10 +26,14 @@ with app.app_context():
     instructor2 = Instructor(first_name='Bakari', last_name='Holmes', password='pass1234', pronounciation='',
                              email='bakari@holmes.com', pronoun='he/him/his', phone_number='123-456-7890', photoUrl='')
 
-    project1 = Project(project_name='Slick', student_id=1)
-    project2 = Project(project_name='Star Trader', student_id=2)
-    project3 = Project(project_name='Rappa Mappa', student_id=3)
-    project4 = Project(project_name='Sneakflix', student_id=4)
+    project1 = Project(project_name='Slick',
+                       clone_name='Slack', student_id=1, cohort_id=1)
+    project2 = Project(project_name='Star Trader',
+                       clone_name='Original', student_id=2, cohort_id=1)
+    project3 = Project(project_name='Rappa Mappa',
+                       clone_name='Original', student_id=3, cohort_id=1)
+    project4 = Project(project_name='Sneakflix',
+                       clone_name='Netflix', student_id=4, cohort_id=1)
 
     db.session.add(cohort1)
     db.session.add(student1)
