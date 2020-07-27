@@ -1,6 +1,6 @@
 #landing-page__title {
 	text-align: center;
-	margin-top: 1rem;
+	margin-top: 2rem;
 }
 
 .login-container {
@@ -11,4 +11,8 @@
 
 img.login-page-image {
 	width: 100%;
+}
+
+.image-container {
+	margin: 0rem 3rem;
 }
