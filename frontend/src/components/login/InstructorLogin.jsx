@@ -9,6 +9,9 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 import { instructorLogin } from '../../store/reducers/auth';
+const access_token = window.localStorage.getItem(
+	'class_tracker/authentication/token'
+);
 
 function InstructorLogin(props) {
 	const [open, setOpen] = useState(false);
@@ -27,7 +30,7 @@ function InstructorLogin(props) {
 		props.instructorLogin(email, password);
 	};
 
-	if (props.access_token) {
+	if (access_token) {
 		return <Redirect to='/instructors/me' />;
 	} else {
 		return (

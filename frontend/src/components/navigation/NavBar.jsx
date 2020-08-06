@@ -197,7 +197,7 @@ export default function NavBar() {
 					<Typography className={classes.title} variant='h6' noWrap>
 						Class Tracker
 					</Typography>
-					<div className={classes.search}>
+					{/* <div className={classes.search}>
 						<div className={classes.searchIcon}>
 							<SearchIcon />
 						</div>
@@ -209,7 +209,7 @@ export default function NavBar() {
 							}}
 							inputProps={{ 'aria-label': 'search' }}
 						/>
-					</div>
+					</div> */}
 					<NavbarLinks />
 					<div className={classes.grow} />
 					<div className={classes.sectionDesktop}>
