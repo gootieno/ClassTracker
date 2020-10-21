@@ -26,6 +26,12 @@ with app.app_context():
     instructor2 = Instructor(first_name='Bakari', last_name='Holmes', password='pass1234', pronounciation='',
                              email='bakari@holmes.com', pronoun='he/him/his', phone_number='123-456-7890', photoUrl='')
 
+    instructor3 = Instructor(first_name='Demo', last_name='User', password='pass1234', pronounciation='',
+                        email='demouser@example.com', pronoun='he/him/his', phone_number='123-456-7890', photoUrl='')
+
+    student5 = Student(first_name='Demo', last_name='Student', password='pass1234', pronounciation='', email='demostudent@example.com',
+                       pronoun='he/him/his', phone_number='123-456-7890', linked_in='https://www.linkedin.com/in/geoffrey-otieno-57015966/', website='', github='https://github.com/gootieno', bio='', photoUrl='', cohort_id=1)
+
     project1 = Project(project_name='Slick',
                        clone_name='Slack', student_id=1, cohort_id=1)
     project2 = Project(project_name='Star Trader',
@@ -40,9 +46,11 @@ with app.app_context():
     db.session.add(student2)
     db.session.add(student3)
     db.session.add(student4)
+    db.session.add(student5)
 
     db.session.add(instructor1)
     db.session.add(instructor2)
+    db.session.add(instructor3)
 
     db.session.add(project1)
     db.session.add(project2)

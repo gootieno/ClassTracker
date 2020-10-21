@@ -20,6 +20,7 @@ sqlalchemy = "*"
 jwt = "*"
 flask-seeder = "*"
 pyjwt = "*"
+flask-cors = "*"
 
 [requires]
 python_version = "3.8"
