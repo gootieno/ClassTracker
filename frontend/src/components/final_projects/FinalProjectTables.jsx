@@ -165,7 +165,7 @@ function FinalProjectsTables(props) {
 								<TableCell align='center'>{project.project_name}</TableCell>
 								<TableCell align='center'>{project.clone_name}</TableCell>
 								<TableCell align='center'>
-									<Button onClick={() => window.open(project.gitHub)}>
+									<Button onClick={() => window.open(project.github)}>
 										<GitHubIcon color='secondary' />
 									</Button>
 								</TableCell>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavBar from '../navigation/NavBar';
 import TextField from '@material-ui/core/TextField';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -9,6 +9,10 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
 export default function Conduct() {
+	const [location, setLocation] = useState('');
+	const [userInput, setUserInput] = useState('');
+
+	console.log(location, userInput);
 	return (
 		<div>
 			<NavBar />
@@ -46,6 +50,7 @@ export default function Conduct() {
 
 			<form className='conduct-form' align='center'>
 				<TextField
+					onChange={(e) => setUserInput(e.target.value)}
 					id='outlined-multiline-static'
 					label='Enter submission here'
 					multiline
@@ -63,10 +68,11 @@ export default function Conduct() {
 					labelId='demo-simple-select-filled-label'
 					id='demo-simple-select-filled'
 					style={{ width: 100 }}
+					onChange={(e) => setLocation(e.target.value)}
 				>
-					<MenuItem value={10}>Online</MenuItem>
-					<MenuItem value={20}>SF</MenuItem>
-					<MenuItem value={30}>NY</MenuItem>
+					<MenuItem value='Online'>Online</MenuItem>
+					<MenuItem value='San Francisco'>SF</MenuItem>
+					<MenuItem value='New York'>NY</MenuItem>
 				</Select>
 				<br />
 				<Button
