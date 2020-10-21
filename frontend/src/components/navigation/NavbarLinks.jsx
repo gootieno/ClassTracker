@@ -19,7 +19,7 @@ function a11yProps(index) {
 	};
 }
 
-export default function NavbarLinks() {
+export default function NavbarLinks(props) {
 	const classes = useStyles();
 	const tabs = [
 		{ label: 'home', path: '/me' },
@@ -29,11 +29,11 @@ export default function NavbarLinks() {
 		{ label: 'conduct', path: '/conduct' },
 		{ label: 'contact-instructors', path: '/contact-instructors' },
 	];
-	const [value, setValue] = React.useState(0);
+	// const [value, setValue] = React.useState(0);
 
-	const handleChange = (event, newValue) => {
-		setValue(newValue);
-	};
+	// const handleChange = (event, newValue) => {
+	// 	setValue(newValue);
+	// };
 
 	return (
 		<div className={classes.root}>
@@ -42,8 +42,8 @@ export default function NavbarLinks() {
 				position='relative'
 			>
 				<Tabs
-					value={value}
-					onChange={handleChange}
+					value={props.value}
+					onChange={props.handleChange}
 					aria-label='simple tabs example'
 				>
 					{tabs.map(({ label, path }, i) => (

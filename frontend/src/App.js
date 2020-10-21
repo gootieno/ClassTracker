@@ -18,7 +18,7 @@ function App(props) {
 	useEffect(() => {
 		setLoaded(true);
 		props.tokenLoad();
-	});
+	}, []);
 
 	if (!loaded) {
 		return null;
@@ -30,6 +30,11 @@ function App(props) {
 					<ProtectedRoute
 						isLoggedIn={props.token}
 						path='/me'
+						component={Home}
+					/>
+					<ProtectedRoute
+						isLoggedIn={props.token}
+						path='/instructors/me'
 						component={Home}
 					/>
 					<ProtectedRoute
