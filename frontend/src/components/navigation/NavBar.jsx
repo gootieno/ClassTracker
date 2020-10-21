@@ -95,6 +95,12 @@ export default function NavBar() {
 	const isMenuOpen = Boolean(anchorEl);
 	const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+	const [value, setValue] = React.useState(0);
+
+	const handleChange = (event, newValue) => {
+		setValue(newValue);
+	};
+
 	const handleProfileMenuOpen = (event) => {
 		setAnchorEl(event.currentTarget);
 	};
@@ -210,7 +216,7 @@ export default function NavBar() {
 							inputProps={{ 'aria-label': 'search' }}
 						/>
 					</div>
-					<NavbarLinks />
+					<NavbarLinks value={value} handleChange={handleChange} />
 					<div className={classes.grow} />
 					<div className={classes.sectionDesktop}>
 						<IconButton aria-label='show 4 new mails' color='inherit'>

@@ -17,9 +17,11 @@ const Home = () => {
 			<NavBar />
 			<div className='home-container'>
 				<div className='home__welcome-message'>
-					<h1>
-						Hey, {studentName} Today is {today}
-					</h1>
+					{studentName === 'Demo' ? (
+						<h1>{`Hey, ${studentName} User Today is ${today}`}</h1>
+					) : (
+						<h1>{`Hey, ${studentName} Today is ${today}`}</h1>
+					)}
 				</div>
 				<div className='home__app-academy-link'>
 					<a href='https://open.appacademy.io/login'>App Academy Online</a>
